@@ -1,0 +1,46 @@
+
+    <% include ./partials/header %>            
+    <div class="ui middle aligned center aligned grid">                    
+            <div class="column">
+                <h1>Sign Up</h1>
+                    <form class="ui form" action="/register" method="POST">
+                        <div class="ui pink stacked segment">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="login">Login</label>
+                                    <input type="text" name="username" placeholder="username">
+                                </div>
+                                <div class="field">
+                                    <label for="password">Password</label>                    
+                                    <input type="text" name="password" placeholder="password">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" name="fname" placeholder="First Name">
+                            </div> 
+                            <div class="field">
+                                <label for="sname">Second Name</label>                    
+                                <input type="text" name="lname" placeholder="Second Name">
+                            </div>
+
+                            <div class="field">
+                                    <label for="sname">Photo</label>                    
+                                    <input type="text" name="avatar" placeholder="Your profile picture">
+                            </div>
+
+                            <div class="field">
+                            <button class="ui basic button"><i class="plus icon"></i>Sign up</button>       
+                            </div>
+                        </div> 
+                    </form>
+            </div>
+    </div>
+
+        <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <% include ./partials/footer %> 

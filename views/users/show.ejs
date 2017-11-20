@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+<div class="ui center aligned grid">
+    <div class="column">
+        <div class="field">
+            <img class="ui medium circular image" src="<%=user.avatar%>">
+        </div>
+        <div class="content">
+                <a class="header"><h1><%= user.fname %> <%= user.lname %></h1></a>
+        </div>
+        <div class="fields">
+            <h1><%= user.username %></h1>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

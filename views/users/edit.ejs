@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+
+<form action="/<%=foundUser._id%>?_method=PUT" method="POST">
+    <h1 style="text-align: center">Edit your Profile page</h1>
+    <div class="container">
+        <div class="form-group">
+            <input class="form-control" type="text" name:"username" value="<%=newUser.username%>" >
+            <input class="form-control" type="text" name:"password" value="<%=newUser.password%>">
+            <button class="btn btn-primary">Update</button>
+        </div>
+    </div>
+</form>
+
+<a href="/">Go Back</a>
+
+
+<% include ../partials/footer %>

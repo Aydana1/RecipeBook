@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+<div class="ui fluid pagination menu">
+        <a class="active item">
+          1
+        </a>
+        <div class="disabled item">
+          ...
+        </div>
+        <a class="item">
+          10
+        </a>
+        <a class="item">
+          11
+        </a>
+        <a class="item">
+          12
+        </a>
+</div>  
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">      
+    <div class="ui grid container">
+     <%  receipts.forEach(function(receipt){   %>
+        <div class="four wide column">
+            <!-- <div class="thumbnail"> -->
+                <h3 ui block header><a href="/receipts/<%= receipt._id %>"><%= receipt.foodName %></a> by <%=  receipt.author %></h3>  
+                <a href="/receipts/<%= receipt._id %>"><img class="ui fluid medium rounded image" src="<%=receipt.image %>"></a>
+                <h4><%=  receipt.ingredients %></h4>
+            </div>
+        <!-- </div> -->
+     <% })  %>
+    </div>         
+</div>
+
+<a href="/receipts/new">Add a new receipt</a>
+
+<% include ../partials/footer %>
+
+
