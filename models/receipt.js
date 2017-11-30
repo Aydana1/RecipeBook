@@ -4,8 +4,21 @@ var mongoose = require('mongoose');
 var receiptSchema = new mongoose.Schema({
     foodName: String,
     ingredients: String,
-    author: String,
-    image: String
+    duration: String,
+    image: String,    
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 module.exports = mongoose.model('Receipt', receiptSchema);

@@ -3,6 +3,13 @@ var router = express.Router();
 var User = require('../models/user');
 var passport = require('passport');
 
+//Show a landing page
+router.get('/', (req, res) => {
+    res.render('landing');
+})
+
+
+
 // Show register form
 router.get('/register', (req, res) => {
     if(req.user){

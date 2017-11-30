@@ -1,0 +1,50 @@
+#delete-form {
+    display: inline;
+}
+
+#footer {
+    margin-top: 20%;
+}
+
+h3 {
+    font-size: 40px;
+    font-family: 'Crimson Text';
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 4px;
+    border-radius: 50%;
+  }
+
+.fa:hover {
+    opacity: 0.5;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }

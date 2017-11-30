@@ -1,43 +1,111 @@
-<% include ../partials/header %>
+<!DOCTYPE html>
+<head>
+    <title>
+        Home
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show.css"> 
+</head>
+<body>
 
+<div class="ui secondary  menu">
+    <a class="active item" href="/landing"> 
+      Home
+    </a>
+    <a class="item">
+      About
+    </a>
+    <a class="item">
+      Contact
+    </a>
+    <a class="item" href="/receipts">
+       Receipts
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+        </div>
+       <% if(currentUser) { %> 
+            <a class="ui item">
+                Signed in as <a href="/users/<%= currentUser._id %>"><%= currentUser.username %></a> 
+            </a>  
+            <a class="ui item" href="/logout">
+                Log out
+            </a>  
+        <% } else {  %>    
+              <a class="ui item" href="/login">
+                  Log in
+              </a>
+              <a class="ui item" href="/register">
+                  Sign up
+              </a>
+        <%  }   %>
+    </div>
+</div>
 
 <div class="ui container">
     <div class="row">
         <div class="col-md-3">
-            <div class="list-group"
-            >
-                <li class="list-group-item active">Info1</li>
-                <li class="list-group-item">Info1</li>
-                <li class="list-grou
-                p-item">Info1</li>
+            <div class="list-group">
+                <li class="list-group-item active"><%= receipt.duration %> min</li>
+                <li class="list-group-item"><em>Ingredients:</em> <%= receipt.ingredients %></li>
+                <li class="list-group-item"><em>Method:</em>
+               
+                </li>
             </div>
-        </div>
-
+            <!-- <div> -->
+                    <h4>Share this recipe on Social Media</h4>
+                    <a href="facebook.com" class="fa fa-facebook"></a>
+                    <a href="twitter.com" class="fa fa-twitter"></a>
+                    <a href="google.com" class="fa fa-google"></a>
+                    <p>
+                            <a href="instagram.com" class="fa fa-instagram"></a>
+                            <a href="youtube.com" class="fa fa-youtube"></a> 
+                    </p>
+<!--                   
+            </div> -->
+    </div>
+  
         <div class="col-md-9">
-            <div class="caption-full">
-                <div class="thumbnail">
+            <div class="thumbnail">                        
+                <div class="caption-full">
                     <h3><%= receipt.foodName %></h3>
                     <img class="image-responsive" src="<%=receipt.image%>">
-                    <h4><%= receipt.ingredients %></h4>
-                    <h4><%= receipt.author %></h4>
-                </div> 
-                <form id="delete-form" action="/receipts/<%= receipt._id %>?_method=DELETE" method="POST">
-                    <button class="ui basic button">Delete</button>
-                </form>    
+                    <p>
+                        <em>Submitted by <%= receipt.author.username %></em>
+                    </p>
                 
-                <form>
-                    
-                </form>
-                    <button class="ui basic button">Edit</button>
-                <a href="/receipts/<%= receipt._id %>/edit">Edit</a>
-                <a href="/receipts">Go Back</a>
+                    <form id="delete-form" action="/receipts/<%= receipt._id %>?_method=DELETE" method="POST">
+                        <button class="ui basic button">Delete</button>
+                    </form>   
+                    <a href="/receipts/<%= receipt._id %>/edit">
+                        <button class="ui basic button">Edit</button>
+                    </a> 
+                </div>        
             </div>
         </div>
 
+        <div class="ui blue labeled submit icon button">
+                <a href="/receipts/<%= receipt._id %>/comments/new"><i class="icon edit"></i>Add Comment</a>
+        </div>
+
+    <!-- <form class="ui reply form" action="/receipts/<%= receipt._id %>" method="POST">
+        <h1 style="text-align: center">Add New Comment to <em><%=receipt.foodName%></em></h1>        
+            <div class="field">
+              <textarea name="comment[text]"></textarea>
+            </div>
+            <div class="ui blue labeled submit icon button">
+              <i class="icon edit"></i>Add Comment
+            </div>
+    </form> -->
     </div>
 </div>
-
-
 
 
 <% include ../partials/footer %>

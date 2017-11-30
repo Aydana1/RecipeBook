@@ -43,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var receiptRoute = require('./routes/receipts');
 var indexRoute = require('./routes/index');
 var userRoute = require('./routes/user');
+var commentRoute = require('./routes/comments');
 
 //  View engine
 app.set('views', path.join(__dirname, 'views'));
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
 app.use('/receipts', receiptRoute);
 app.use('/', indexRoute);
 app.use('/users', userRoute);
+app.use('/receipts/:id/comments', commentRoute);
 
 app.listen(port, () => {
     console.log('Server is connected at port ' + port);

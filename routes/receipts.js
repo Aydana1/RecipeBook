@@ -3,7 +3,6 @@ var router = express.Router();
 var Receipt = require('../models/receipt');
 var mongoose = require('mongoose');
 
-
 // Index.ejs:  Show All Receipts     
 router.get('/', (req, res) => {
     Receipt.find({}, (err, allReceipts) => {
@@ -21,6 +20,7 @@ router.post('/', (req, res) => {
         {
         foodName: req.body.foodName,
         ingredients: req.body.ingredients,
+        duration: req.body.duration,
         author: req.body.author,
         image: req.body.image
         }

@@ -7,6 +7,10 @@ body {
     color: black;
 }
 
+#footer {
+    margin-top: 20%;
+}
+
 body > .grid {
     height: 100%;
   }
